@@ -1,30 +1,44 @@
-// Define an array of fruits
+// Step 1: Define an array of fruits
+// This array contains a list of fruit names that we will display as clickable links.
 const fruits = ["Banana", "Orange", "Apple", "Mango", "jac", "rice"];
 
-// Select the element with the id "foods" and change its background color
+// Step 2: Select the "foods" container and set its background color
+// The element with id="foods" will have a green background.
 const foodsContainer = document.getElementById("foods");
-foodsContainer.style.backgroundColor = "green"; // Set background color to green
+foodsContainer.style.backgroundColor = "green"; // Apply green background
 
-// Select the element with the id "container" and change its background color
-document.getElementById("container").style.backgroundColor = "blue"; // Set background color to blue
+// Step 3: Select the "container" element and set its background color
+// The element with id="container" will have a blue background.
+document.getElementById("container").style.backgroundColor = "blue"; // Apply blue background
 
-// Loop through the fruits array and create links for each fruit
+// Step 4: Loop through the fruits array and create clickable links
+// For each fruit in the array, create an <a> element and add it to the "foods" container.
 fruits.forEach((item) => {
-    // Create a new <a> element
-    const buttonContainer = document.createElement("a");
-
-    // Set the inner HTML of the <a> element to include a link with the fruit name
-    buttonContainer.innerHTML = `
-    <a href="${item}">${item}</a>
-    `;
-
-    // Append the new <a> element to the foods container
-    foodsContainer.append(buttonContainer);
+    const buttonContainer = document.createElement("a"); // Create an <a> element
+    buttonContainer.innerHTML = `<a href="${item}">${item}</a>`; // Add a clickable link
+    foodsContainer.append(buttonContainer); // Append the link to the "foods" container
 });
 
-// Create a new button element
-const btn = document.createElement("button");
+// Step 5: Create and add a "Login" button
+// Dynamically create a button with the text "Login" and add it to the page.
+const btn = document.createElement("button"); // Create a <button> element
 btn.innerHTML = "Login"; // Set the button's text to "Login"
+document.body.appendChild(btn); // Append the button to the end of the body
 
-// Append the button to the end of the document body
-document.body.appendChild(btn);
+// Step 6: Define a navbar array for menu links
+// This array contains menu items, each with a "name" (label) and a "path" (URL).
+const navbar = [
+    { name: "Home", path: "/" },
+    { name: "Products", path: "products" },
+    { name: "Services", path: "services" },
+    { name: "Contact Us", path: "contact" }
+];
+
+// Step 7: Select the "navbar" container and populate it with menu links
+// Loop through the navbar array to create and add menu links to the "navbar" container.
+const navContainer = document.getElementById("navbar");
+navbar.forEach((item) => {
+    const link = document.createElement("div"); // Create a <div> element
+    link.innerHTML = `<a href="${item.path}">${item.name}</a>`; // Add a clickable menu link
+    navContainer.append(link); // Append the link to the "navbar" container
+});
