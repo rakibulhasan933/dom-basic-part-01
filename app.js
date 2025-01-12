@@ -1,44 +1,52 @@
-// Step 1: Define an array of fruits
-// This array contains a list of fruit names that we will display as clickable links.
-const fruits = ["Banana", "Orange", "Apple", "Mango", "jac", "rice"];
-
-// Step 2: Select the "foods" container and set its background color
-// The element with id="foods" will have a green background.
-const foodsContainer = document.getElementById("foods");
-foodsContainer.style.backgroundColor = "green"; // Apply green background
-
-// Step 3: Select the "container" element and set its background color
-// The element with id="container" will have a blue background.
-document.getElementById("container").style.backgroundColor = "blue"; // Apply blue background
-
-// Step 4: Loop through the fruits array and create clickable links
-// For each fruit in the array, create an <a> element and add it to the "foods" container.
-fruits.forEach((item) => {
-    const buttonContainer = document.createElement("a"); // Create an <a> element
-    buttonContainer.innerHTML = `<a href="${item}">${item}</a>`; // Add a clickable link
-    foodsContainer.append(buttonContainer); // Append the link to the "foods" container
-});
-
-// Step 5: Create and add a "Login" button
-// Dynamically create a button with the text "Login" and add it to the page.
-const btn = document.createElement("button"); // Create a <button> element
-btn.innerHTML = "Login"; // Set the button's text to "Login"
-document.body.appendChild(btn); // Append the button to the end of the body
-
-// Step 6: Define a navbar array for menu links
-// This array contains menu items, each with a "name" (label) and a "path" (URL).
-const navbar = [
-    { name: "Home", path: "/" },
-    { name: "Products", path: "products" },
-    { name: "Services", path: "services" },
-    { name: "Contact Us", path: "contact" }
+// Array of image URLs
+const imgs = [
+    "https://i.ibb.co.com/DbHR9Dk/Screenshot-2024-07-15-183910.png", // URL of the first image
+    "https://i.ibb.co.com/9yqZTJ8/Screenshot-2024-07-15-182540.png", // URL of the second image
+    "https://i.ibb.co.com/6D1c3jv/doctor-protal.png",               // URL of the third image
+    "https://i.ibb.co.com/vvvZXNS/car-cleaning.jpg",                 // URL of the fourth image
+    "https://i.ibb.co.com/YXzb4vR/office-cleaning.jpg",              // URL of the fifth image
+    "https://i.ibb.co.com/DMkYCnK/Screenshot-2022-08-01-113629.png", // URL of the sixth image
+    "https://i.ibb.co.com/6D1c3jv/doctor-protal.png",               // URL of the seventh image (repeated)
+    "https://i.ibb.co.com/vvvZXNS/car-cleaning.jpg",                 // URL of the eighth image (repeated)
+    "https://i.ibb.co.com/YXzb4vR/office-cleaning.jpg",              // URL of the ninth image (repeated)
+    "https://i.ibb.co.com/DMkYCnK/Screenshot-2022-08-01-113629.png", // URL of the tenth image (repeated)
+    "https://media.4-paws.org/.../VIER%20PFOTEN_2017.jpg",          // URL of the eleventh image
+    "https://blog.lovellsoccer.co.uk/2024/.../Messi.jpg",           // URL of the twelfth image
+    "https://i.ibb.co.com/Lgft81q/pexels-mohdatir.jpg",             // URL of the thirteenth image
+    "https://i.ibb.co.com/MRW1T1M/code.jpg"                         // URL of the fourteenth image
 ];
 
-// Step 7: Select the "navbar" container and populate it with menu links
-// Loop through the navbar array to create and add menu links to the "navbar" container.
-const navContainer = document.getElementById("navbar");
-navbar.forEach((item) => {
-    const link = document.createElement("div"); // Create a <div> element
-    link.innerHTML = `<a href="${item.path}">${item.name}</a>`; // Add a clickable menu link
-    navContainer.append(link); // Append the link to the "navbar" container
+// Select the container element where images will be added
+const boxContainer = document.getElementById("box-container");
+
+// Style the container to make it visually distinct
+boxContainer.style.border = "4px solid blue"; // Adds a blue border around the container
+boxContainer.style.padding = "50px";         // Adds padding inside the container
+
+// Function to display all images from the array in the container
+function showContent() {
+    imgs.forEach((img) => { // Loop through each image URL in the array
+        const box = document.createElement("div"); // Create a new `div` element for each image
+        box.style.border = "3px solid green";      // Add a green border to the `div`
+        box.style.borderRadius = "8px";           // Make the corners of the `div` rounded
+        box.innerHTML = ` <img src="${img}" width="500" height="300" loading="lazy" alt="">`; // Add the image to the `div`
+        boxContainer.append(box); // Add the `div` to the container
+    });
+}
+
+// Select the element with the ID `datetime`
+const datetime = document.getElementById("datetime");
+
+// When the `datetime` element is clicked, run the `showContent` function
+datetime.addEventListener("click", showContent);
+
+// Another event: When the `datetime` element loses focus (blur event), run the same code
+datetime.addEventListener("blur", function () {
+    imgs.forEach((img) => { // Loop through each image URL in the array
+        const box = document.createElement("div"); // Create a new `div` element for each image
+        box.style.border = "3px solid green";      // Add a green border to the `div`
+        box.style.borderRadius = "8px";           // Make the corners of the `div` rounded
+        box.innerHTML = ` <img src="${img}" width="500" height="300" loading="lazy" alt="">`; // Add the image to the `div`
+        boxContainer.append(box); // Add the `div` to the container
+    });
 });

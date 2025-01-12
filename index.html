@@ -4,13 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML,CSS&& Javascript</title>
+    <title>Document</title>
+    <style>
+        #box-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        button {
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <h2 id="title"></h2>
-    <p class="description"></p>
-    <div id="navbar"></div>
+    <h3 id="sub-title"></h3>
+    <h2 class="description"></h2>
+    <button id="datetime">show</button>
+    <br>
+    <div id="box-container"></div>
     <script src="./app.js"></script>
 </body>
 
